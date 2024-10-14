@@ -179,7 +179,7 @@ module SDL
 
     # Draw a single `Rect`.
     def draw_rect(x, y, w, h)
-      rect = Rect.new(x, y, w, h)
+      rect = Rect.new(x.to_i, y.to_i, w.to_i, h.to_i)
       ret = LibSDL.render_draw_rect(self, pointerof(rect))
       raise Error.new("SDL_RenderDrawRect") unless ret == 0
     end
@@ -198,7 +198,7 @@ module SDL
 
     # Fill a `Rect` with the current `draw_color` and `draw_blend_mode`.
     def fill_rect(x, y, w, h)
-      rect = Rect.new(x, y, w, h)
+      rect = Rect.new(x.to_i, y.to_i, w.to_i, h.to_i)
       ret = LibSDL.render_fill_rect(self, pointerof(rect))
       raise Error.new("SDL_RenderFillRect") unless ret == 0
     end
